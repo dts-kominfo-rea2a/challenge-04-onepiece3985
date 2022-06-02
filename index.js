@@ -8,7 +8,21 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (tanggal, urutan)=>{
+  let tglepoch=[];
+  for(barisData=0;barisData<tanggal.length;barisData++){
+    tglepoch.push(Date.parse(tanggal[barisData])/1000);
+  }
+  if(isNaN(urutan)){
+    tglepoch.sort();
+    for(barisData=0;barisData<tglepoch.length;barisData++){
+      tglepoch[barisData].toFixed(3);
+    }
+    return tglepoch.join('-');
+  }else{
+    return tglepoch[urutan].toString();
+  }
+}
 
 // ! JANGAN DIMODIFIKASI
 (() => {
